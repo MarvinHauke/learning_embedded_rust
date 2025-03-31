@@ -6,10 +6,11 @@ runner= """
 qemu-system-arm \
 -cpu cortex-m3 \
 -machine lm3s6965evb \
--nographic \
 -semihosting-config enable=on,target=native \
 -kernel
 """
+# add -nographic flag for redirecting serialoutput to your terminal if nothing is seen
+# I removed it for closing qemu with ctrl+c
 
 rustflags = [
   "-C", "link-arg=-Tlink.x",
